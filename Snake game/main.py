@@ -1,7 +1,6 @@
 import time
 from turtle import *
 import random
-
 score=0
 execution_delay=0.1
 
@@ -83,10 +82,10 @@ def go_left():
 
 
 a.listen()
-
 a.onkeypress(go_up,'Up')
-a.onkeypress(go_down,'Down')
 a.onkeypress(go_right,'Right')
+
+a.onkeypress(go_down,'Down')
 a.onkeypress(go_left,'Left')
 
 while True:
@@ -100,7 +99,7 @@ while True:
           head.goto(0,0)
           head.direction='Stop'
           for bodies in segments:
-              bodies.goto(1000,1000)
+          bodies.goto(1000,1000)
           score=0
           execution_delay=0.1
           segments.clear()
@@ -112,12 +111,10 @@ while True:
           y=random.randint(-255,255)
           food.goto(x,y)
           execution_delay=execution_delay-0.003
-
           body=Turtle()
           body.penup()
           body.shape('body.gif')
           segments.append(body)
-
           score=score+5
           text.clear()
           text.write(f'Score:{score}',font=('courier',25,'bold'),align='center')
